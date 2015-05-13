@@ -24,4 +24,15 @@ final class GameOfLifeSpec extends Specification {
         0 | 0 | true
         1 | 1 | false
     }
+
+    def "Single life should die alone"() {
+        given:
+        def game = new GameOfLife([[0, 0]])
+
+        when:
+        game.tick()
+
+        then:
+        !game.isAlive(0, 0)
+    }
 }

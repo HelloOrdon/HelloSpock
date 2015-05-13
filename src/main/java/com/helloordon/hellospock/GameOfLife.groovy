@@ -13,4 +13,8 @@ final class GameOfLife {
     boolean isAlive(int x, int y) {
         return lives.contains([x, y])
     }
+
+    void tick() {
+        lives.clear()
+    }
 }
