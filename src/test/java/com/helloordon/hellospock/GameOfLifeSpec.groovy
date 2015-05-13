@@ -7,4 +7,11 @@ final class GameOfLifeSpec extends Specification {
         expect:
         new GameOfLife()
     }
+
+    def "Game should be dead on start"() {
+        given:
+        def game = new GameOfLife()
+        expect:
+        game.isAlive(0, 0) == false
+    }
 }
