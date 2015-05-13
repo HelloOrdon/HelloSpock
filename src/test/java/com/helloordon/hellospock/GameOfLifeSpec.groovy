@@ -77,6 +77,19 @@ final class GameOfLifeSpec extends Specification {
                        new Cell(1, -1), new Cell(1, 0), new Cell(1, 1)]
     }
 
+    def "Cell should know its neighbours also at other position"() {
+        given:
+        def cell = new Cell(5, 8)
+
+        when:
+        def neighbours = cell.neighbours()
+
+        then:
+        neighbours == [new Cell(4, 7), new Cell(4, 8), new Cell(4, 9),
+                       new Cell(5, 7), /*           */ new Cell(5, 9),
+                       new Cell(6, 7), new Cell(6, 8), new Cell(6, 9)]
+    }
+
 //    def "Group of 4 lives should survive at any place"() {
 //        given:
 //        def game = new GameOfLife([[3, 3],[4, 3],[3, 4],[4, 4]])
