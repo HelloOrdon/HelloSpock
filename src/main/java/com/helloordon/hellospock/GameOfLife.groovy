@@ -15,6 +15,7 @@ final class GameOfLife {
     }
 
     void tick() {
-        lives.clear()
+        if (lives.size() < 4)
+            lives.clear()
     }
 }

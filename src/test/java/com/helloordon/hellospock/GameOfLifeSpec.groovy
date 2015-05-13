@@ -35,4 +35,18 @@ final class GameOfLifeSpec extends Specification {
         then:
         !game.isAlive(0, 0)
     }
+
+    def "Group of 4 lives should survive"() {
+        given:
+        def game = new GameOfLife([[0, 0],[1, 0],[0, 1],[1, 1]])
+
+        when:
+        game.tick()
+
+        then:
+        game.isAlive(0, 0)
+        game.isAlive(1, 0)
+        game.isAlive(0, 1)
+        game.isAlive(1, 1)
+    }
 }
