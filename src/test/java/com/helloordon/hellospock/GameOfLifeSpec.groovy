@@ -128,4 +128,15 @@ final class GameOfLifeSpec extends Specification {
         game.isAlive(1, 0)
         game.isAlive(0, 1)
     }
+
+    def "Dead cell with three living neighbours should emerge"() {
+        given:
+        def game = new GameOfLife([[0, 0], [1, 0], [0, 1]])
+
+        when:
+        game.tick()
+
+        then:
+        game.isAlive(1, 1)
+    }
 }

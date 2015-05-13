@@ -20,11 +20,20 @@ final class GameOfLife {
     }
 
     void tick() {
-        lives = lives.findAll { shouldSurvive(it) }
+        lives = survived() + emerged()
+    }
+
+    List<Cell> survived() {
+        lives.findAll { shouldSurvive(it) }
     }
 
     boolean shouldSurvive(Cell life) {
         def livingNeighboursCount = life.neighbours().findAll { isAlive(it) }.size()
         return livingNeighboursCount in [2, 3]
+    }
+
+    List<Cell> emerged() {
+        lives.collectMany { it.neighbours() }
+                .findAll { !isAlive(it) }
     }
 }
