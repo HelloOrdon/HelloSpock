@@ -19,4 +19,12 @@ final class GameOfLifeSpec extends Specification {
         expect:
         game.isAlive(0, 0)
     }
+
+    def "Game created with life should be alive only at given position"() {
+        given:
+        def game = new GameOfLife([[0,0]])
+
+        expect:
+        !game.isAlive(1, 1)
+    }
 }

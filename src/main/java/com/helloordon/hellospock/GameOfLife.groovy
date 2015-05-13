@@ -11,6 +11,6 @@ final class GameOfLife {
     }
 
     boolean isAlive(int x, int y) {
-        return !lives.empty
+        return lives.contains([x, y])
     }
 }
