@@ -90,17 +90,17 @@ final class GameOfLifeSpec extends Specification {
                        new Cell(6, 7), new Cell(6, 8), new Cell(6, 9)]
     }
 
-//    def "Group of 4 lives should survive at any place"() {
-//        given:
-//        def game = new GameOfLife([[3, 3],[4, 3],[3, 4],[4, 4]])
-//
-//        when:
-//        game.tick()
-//
-//        then:
-//        game.isAlive(3, 3)
-//        game.isAlive(4, 3)
-//        game.isAlive(3, 4)
-//        game.isAlive(4, 4)
-//    }
+    def "Group of 4 lives should survive at any place"() {
+        given:
+        def game = new GameOfLife([[3, 3],[4, 3],[3, 4],[4, 4]])
+
+        when:
+        game.tick()
+
+        then:
+        game.isAlive(3, 3)
+        game.isAlive(4, 3)
+        game.isAlive(3, 4)
+        game.isAlive(4, 4)
+    }
 }
