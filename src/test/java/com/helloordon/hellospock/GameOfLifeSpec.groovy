@@ -38,7 +38,7 @@ final class GameOfLifeSpec extends Specification {
 
     def "Group of 4 lives should survive"() {
         given:
-        def game = new GameOfLife([[0, 0],[1, 0],[0, 1],[1, 1]])
+        def game = new GameOfLife([[0, 0], [1, 0], [0, 1], [1, 1]])
 
         when:
         game.tick()
@@ -52,7 +52,7 @@ final class GameOfLifeSpec extends Specification {
 
     def "4 lives but not in group should die"() {
         given:
-        def game = new GameOfLife([[0, 0],[3, 3],[6, 6],[9, 9]])
+        def game = new GameOfLife([[0, 0], [3, 3], [6, 6], [9, 9]])
 
         when:
         game.tick()
@@ -62,6 +62,19 @@ final class GameOfLifeSpec extends Specification {
         !game.isAlive(3, 3)
         !game.isAlive(6, 6)
         !game.isAlive(9, 9)
+    }
+
+    def "Cell should know its neighbours"() {
+        given:
+        def cell = new Cell(0, 0)
+
+        when:
+        def neighbours = cell.neighbours()
+
+        then:
+        neighbours == [new Cell(-1, -1), new Cell(-1, 0), new Cell(-1, 1),
+                       new Cell(0, -1), /*            */ new Cell(0, 1),
+                       new Cell(1, -1), new Cell(1, 0), new Cell(1, 1)]
     }
 
 //    def "Group of 4 lives should survive at any place"() {
