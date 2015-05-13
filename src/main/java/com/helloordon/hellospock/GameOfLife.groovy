@@ -24,6 +24,7 @@ final class GameOfLife {
     }
 
     boolean shouldSurvive(Cell life) {
-        life.neighbours().findAll{ isAlive(it) }
+        def livingNeighboursCount = life.neighbours().findAll { isAlive(it) }.size()
+        return livingNeighboursCount == 3
     }
 }
