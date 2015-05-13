@@ -10,8 +10,8 @@ final class Cell {
     int y
 
     List<Cell> neighbours() {
-        [new Cell(-1, -1), new Cell(-1, 0), new Cell(-1, 1),
-         new Cell(0, -1), /*            */ new Cell(0, 1),
-         new Cell(1, -1), new Cell(1, 0), new Cell(1, 1)]
+        [new Cell(x - 1, y - 1), new Cell(x - 1, y), new Cell(x - 1, y + 1),
+         new Cell(x + 0, y - 1), /*               */ new Cell(x + 0, y + 1),
+         new Cell(x + 1, y - 1), new Cell(x + 1, y), new Cell(x + 1, y + 1)]
     }
 }
