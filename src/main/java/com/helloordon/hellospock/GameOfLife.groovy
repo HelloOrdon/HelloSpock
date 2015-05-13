@@ -15,7 +15,12 @@ final class GameOfLife {
     }
 
     void tick() {
+        lives = lives.findAll { shouldSurvive(it) }
         if (lives.size() < 4)
             lives.clear()
+    }
+
+    boolean shouldSurvive(List<Integer> life) {
+        life[0] < 3
     }
 }
