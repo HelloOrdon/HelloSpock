@@ -150,4 +150,24 @@ final class GameOfLifeSpec extends Specification {
         then:
         !game.isAlive(1, 1)
     }
+
+    def "Dead cell with neighbours count different from 3 should remain dead"() {
+        given:
+        def game = new GameOfLife(lives)
+
+        when:
+        game.tick()
+
+        then:
+        !game.isAlive(1, 1)
+
+        where:
+        lives << [[[0, 0]],
+                  [[0, 0], [0, 1]],
+                  [[0, 0], [0, 1], [0, 2], [1, 0]],
+                  [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2]],
+                  [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0]],
+                  [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]],
+                  [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1], [2, 2]]]
+    }
 }
