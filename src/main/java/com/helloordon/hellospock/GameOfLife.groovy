@@ -20,7 +20,7 @@ final class GameOfLife {
     }
 
     void tick() {
-        lives = survived() + emerged()
+        lives = (survived() + emerged()).unique()
     }
 
     List<Cell> survived() {
