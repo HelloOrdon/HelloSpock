@@ -35,6 +35,11 @@ final class GameOfLife {
     List<Cell> emerged() {
         lives.collectMany { it.neighbours() }
                 .findAll { !isAlive(it) }
-                .findAll { shouldSurvive(it) }
+                .findAll { shouldEmerge(it) }
+    }
+
+    boolean shouldEmerge(Cell life) {
+        def livingNeighboursCount = life.neighbours().findAll { isAlive(it) }.size()
+        return livingNeighboursCount == 3
     }
 }
