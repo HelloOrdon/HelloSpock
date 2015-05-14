@@ -35,5 +35,6 @@ final class GameOfLife {
     List<Cell> emerged() {
         lives.collectMany { it.neighbours() }
                 .findAll { !isAlive(it) }
+                .findAll { shouldSurvive(it) }
     }
 }

@@ -139,4 +139,15 @@ final class GameOfLifeSpec extends Specification {
         then:
         game.isAlive(1, 1)
     }
+
+    def "Dead cell with single living neighbour should not emerge"() {
+        given:
+        def game = new GameOfLife([[0, 0]])
+
+        when:
+        game.tick()
+
+        then:
+        !game.isAlive(1, 1)
+    }
 }
