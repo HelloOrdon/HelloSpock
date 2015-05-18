@@ -1,4 +1,4 @@
-package com.helloordon.hellospock
+package com.helloordon.hellospock.game
 
 import groovy.transform.CompileStatic
 import groovy.transform.Immutable

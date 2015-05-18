@@ -1,4 +1,7 @@
-package com.helloordon.hellospock
+package com.helloordon.hellospock.gui
+
+import com.helloordon.hellospock.game.Cell
+import com.helloordon.hellospock.game.GameOfLife
 
 import javax.swing.*
 import java.awt.*

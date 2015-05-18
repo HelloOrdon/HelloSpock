@@ -1,5 +1,6 @@
-package com.helloordon.hellospock
+package com.helloordon.hellospock.gui
 
+import com.helloordon.hellospock.game.GameOfLife
 import groovy.transform.CompileStatic
 
 import javax.swing.*

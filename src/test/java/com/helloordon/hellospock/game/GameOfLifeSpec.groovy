@@ -1,5 +1,7 @@
-package com.helloordon.hellospock
+package com.helloordon.hellospock.game
 
+import com.helloordon.hellospock.game.Cell
+import com.helloordon.hellospock.game.GameOfLife
 import spock.lang.Specification
 
 final class GameOfLifeSpec extends Specification {
